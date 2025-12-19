@@ -1,0 +1,17 @@
+{
+    "model_version": "v1.0-linear-regression",
+    "target_variable": "Water_Consumption_Liters",
+    "target_unit": "Liters",
+    "r2": 0.776,
+    "rmse": 30.99,
+    "feature_importance": {
+        "Temperature_C": 5.076,
+        "Humidity_%": 1.985,
+        "Rain_mm": 8.028,
+        "Wind_kmh": 3.025,
+        "Previous_Day_Consumption": 0.514,
+        "Week_Average": 0.117,
+        "Month_Average": -0.084,
+        "DayOfWeek": 0.881
+    }
+}
