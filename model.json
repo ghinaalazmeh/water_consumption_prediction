@@ -1,7 +1,5 @@
 {
-    "model_version": "v1.0-linear-regression",
-    "target_variable": "Water_Consumption_Liters",
-    "target_unit": "Liters",
+    "model_version": "linear-regression",
     "r2": 0.776,
     "rmse": 30.99,
     "feature_importance": {

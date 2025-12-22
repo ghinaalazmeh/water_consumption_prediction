@@ -11,33 +11,30 @@ import json
 import joblib
 #csv استدعاء وقراءة ملف 
 df = pd.read_csv('water_consumption_weather_1000.csv')
-#تنظيف البيانات
 
 #اضافة عمود DayOfWeek
 df["Date"] = pd.to_datetime(df["Date"])
 df["DayOfWeek"] = df["Date"].dt.dayofweek
+
 # تبديل آخر عمودين فقط
 cols = df.columns.tolist()
-cols[-2], cols[-1] = cols[-1], cols[-2]  # swap آخر عمودين
+cols[-2], cols[-1] = cols[-1], cols[-2]  
 df = df[cols]
 print (df.head())
-#التأكد من عدم وجود قيم فارغة
+
 test=df.isnull().sum()
 print(test)
-#قسم البيانات
+
 #featuresتعريف ال
 x = df.drop(columns= ['Date','Water_Consumption_Liters'])
-#تعريف الهدف
+
 y=df['Water_Consumption_Liters']
-#تقسيم مجموعة البيانات
 x_train , x_test ,y_train ,  y_test =train_test_split(x , y , test_size=0.3 , random_state=0)
 lr=LinearRegression()
 #تدريب النموذج
 lr.fit(x_train , y_train)
-# y نقطة تقاطع محور 
 intercept=lr.intercept_
 print("intercept=",intercept)
-#معاملات كل ميزة (كم يؤثر كل ميزه على التوقع)
 coefficients=lr.coef_
 feature_names = x.columns
 feature_importance = dict(zip(x.columns, lr.coef_))
